@@ -9,3 +9,13 @@
         <a class="older-posts btn btn-primary" href="{{page_url next}}">Older Posts <i class="i-forward"></i></a>
     {{/if}}
 </nav>
+
+<script>
+    var newerPost = document.getElementsByClassName('newer-posts');
+    var url = '/blog';
+    for (i = 0; i < newerPost.length; i++) { 
+        if (newerPost[i].getAttribute('href') === '/') {
+            newerPost[i].setAttribute('href', url);
+        }
+    }
+</script>
