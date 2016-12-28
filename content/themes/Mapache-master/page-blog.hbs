@@ -1,3 +1,6 @@
+{{!-- Add Layout --}}
+{{!< default}}
+
 <main id="content" class="content" role="main">
     {{#get "posts" limit="5" include="tags,author"}}
         {{#foreach posts}}
