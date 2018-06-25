@@ -1,6 +1,6 @@
 var Settings,
     ghostBookshelf = require('./base'),
-    uuid           = require('node-uuid'),
+    uuid           = require('uuid'),
     _              = require('lodash'),
     errors         = require('../errors'),
     Promise        = require('bluebird'),
@@ -85,7 +85,7 @@ Settings = ghostBookshelf.Model.extend({
                 return;
             }
 
-            return validation.validateActiveTheme(themeName);
+            return validation.validateActiveTheme(themeName, {showWarning: model.isNew()});
         });
     }
 }, {

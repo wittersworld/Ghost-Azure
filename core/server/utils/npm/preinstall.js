@@ -12,7 +12,7 @@ function doError() {
     console.error('\x1B[31mERROR: Unsupported version of Node');
     console.error('\x1B[37mGhost supports LTS Node versions: ' + process.env.npm_package_engines_node);
     console.error('You are currently using version: ' + process.versions.node + '\033[0m');
-    console.error('\x1B[32mThis check can be overridden, see http://support.ghost.org/supported-node-versions/ for more info\033[0m');
+    console.error('\x1B[32mThis check can be overridden, see https://docs.ghost.org/v0.11.9/docs/supported-node-versions for more info\033[0m');
 
     process.exit(exitCodes.NODE_VERSION_UNSUPPORTED);
 }
@@ -31,7 +31,7 @@ if (process.env.GHOST_NODE_VERSION_CHECK === 'false') {
                 (matchChar === '~' && currentVersion === versionString)
                 || (matchChar === '^'
                     && currentVersion.match(majorRegex)[0] === versionString.match(majorRegex)[0]
-                    && currentVersion.match(minorRegex)[0] >= versionString.match(minorRegex)[0]
+                    && parseInt(currentVersion.match(minorRegex)[0]) >= parseInt(versionString.match(minorRegex)[0])
                 )
             ) {
                 foundMatch = true;
